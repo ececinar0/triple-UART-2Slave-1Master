@@ -1,0 +1,97 @@
+[
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Core/Src/main.c\" -mcpu\u003dcortex-m3 -std\u003dgnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Core/Src/main.o\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Core/Src/main.c"
+  },
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Core/Src/stm32f1xx_hal_msp.c\" -mcpu\u003dcortex-m3 -std\u003dgnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Core/Src/stm32f1xx_hal_msp.o\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Core/Src/stm32f1xx_hal_msp.c"
+  },
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Core/Src/stm32f1xx_it.c\" -mcpu\u003dcortex-m3 -std\u003dgnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Core/Src/stm32f1xx_it.o\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Core/Src/stm32f1xx_it.c"
+  },
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Core/Src/syscalls.c\" -mcpu\u003dcortex-m3 -std\u003dgnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Core/Src/syscalls.o\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Core/Src/syscalls.c"
+  },
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Core/Src/sysmem.c\" -mcpu\u003dcortex-m3 -std\u003dgnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Core/Src/sysmem.o\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Core/Src/sysmem.c"
+  },
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Core/Src/system_stm32f1xx.c\" -mcpu\u003dcortex-m3 -std\u003dgnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Core/Src/system_stm32f1xx.o\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Core/Src/system_stm32f1xx.c"
+  },
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc -mcpu\u003dcortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Core/Startup/startup_stm32f103c8tx.o\" \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Core/Startup/startup_stm32f103c8tx.s\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Core/Startup/startup_stm32f103c8tx.s"
+  },
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c\" -mcpu\u003dcortex-m3 -std\u003dgnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c"
+  },
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c\" -mcpu\u003dcortex-m3 -std\u003dgnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c"
+  },
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c\" -mcpu\u003dcortex-m3 -std\u003dgnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c"
+  },
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c\" -mcpu\u003dcortex-m3 -std\u003dgnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c"
+  },
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c\" -mcpu\u003dcortex-m3 -std\u003dgnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c"
+  },
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c\" -mcpu\u003dcortex-m3 -std\u003dgnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c"
+  },
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c\" -mcpu\u003dcortex-m3 -std\u003dgnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c"
+  },
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c\" -mcpu\u003dcortex-m3 -std\u003dgnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c"
+  },
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c\" -mcpu\u003dcortex-m3 -std\u003dgnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c"
+  },
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c\" -mcpu\u003dcortex-m3 -std\u003dgnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c"
+  },
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c\" -mcpu\u003dcortex-m3 -std\u003dgnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c"
+  },
+  {
+    "directory": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART",
+    "command": "arm-none-eabi-gcc \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c\" -mcpu\u003dcortex-m3 -std\u003dgnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity --specs\u003dnano.specs -mfloat-abi\u003dsoft -mthumb -o \"C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Debug/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o\"",
+    "file": "C:/Users/e.cinar/Documents/GitHub/C-IoT/SlaveSW/triple_UART/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c"
+  }
+]
