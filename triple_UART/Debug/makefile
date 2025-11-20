@@ -60,8 +60,8 @@ all: main-build
 main-build: triple_UART.elf secondary-outputs
 
 # Tool invocations
-triple_UART.elf triple_UART.map: $(OBJS) $(USER_OBJS) C:\Users\e.cinar\Documents\GitHub\C-IoT\SlaveSW\triple_UART\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "triple_UART.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\e.cinar\Documents\GitHub\C-IoT\SlaveSW\triple_UART\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="triple_UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+triple_UART.elf triple_UART.map: $(OBJS) $(USER_OBJS) C:\Users\e.cinar\Documents\GitHub\triple-UART-2Slave-1Master\triple_UART\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "triple_UART.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\e.cinar\Documents\GitHub\triple-UART-2Slave-1Master\triple_UART\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="triple_UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
