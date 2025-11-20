@@ -29,8 +29,8 @@
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 #define MAX_DATA_LEN 16 // Maksimum veri boyutu (başlık + veri boyu + tür + adres + veri)
-uint8_t unsignedData[MAX_DATA_LEN] = {0x45, 0x42, 0x45, 0x00, 0x00};
-uint8_t signedData[MAX_DATA_LEN] = {0x00, 0x45, 0x42, 0x45, 0x00, 0x00};
+uint8_t unsignedData[MAX_DATA_LEN] = {0x45, 0x43, 0x45, 0x00, 0x00};
+uint8_t signedData[MAX_DATA_LEN] = {0x00, 0x45, 0x43, 0x45, 0x00, 0x00};
 volatile bool dualMode = false;
 volatile bool transmitFlag = false;
 
@@ -51,16 +51,19 @@ uint8_t _3dataLen = 0;               // Alınan veri boyutu
 volatile bool _3headerCheck = false; // Başlık kontrolü için değişken
 volatile bool _3header0 = false;     // başlık 1. bayte kontrolü için değişken
 volatile bool _3header1 = false;     // başlık 2. bayte kontrolü için değişken
+volatile bool _3header2 = false;     // başlık 2. bayte kontrolü için değişken
 
 uint8_t _2dataLen = 0;               // Alınan veri boyutu
 volatile bool _2headerCheck = false; // Başlık kontrolü için değişken
 volatile bool _2header0 = false;     // başlık 1. bayte kontrolü için değişken
 volatile bool _2header1 = false;     // başlık 2. bayte kontrolü için değişken
+volatile bool _2header2 = false;     // başlık 2. bayte kontrolü için değişken
 
 uint8_t _1dataLen = 0;               // Alınan veri boyutu
 volatile bool _1headerCheck = false; // Başlık kontrolü için değişken
 volatile bool _1header0 = false;     // başlık 1. bayte kontrolü için değişken
 volatile bool _1header1 = false;     // başlık 2. bayte kontrolü için değişken
+volatile bool _1header2 = false;     // başlık 2. bayte kontrolü için değişken
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -152,7 +155,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     transmitFlag = true; // Masterdan mesaj geldikten sonra veri iletimini başlatır.
     if (!_3header0)
     {
-      if (_3uartHeader[0] == 0x42) // Başlık kontrolü
+      if (_3uartHeader[0] == 0x45) // Başlık kontrolü
         _3header0 = true;          // Başlık kontrolü başarılı
       else if (_3uartHeader[0] == 0x01 || _3uartHeader[0] == 0x02)
       {
@@ -163,19 +166,31 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     }
     else if (_3header0 && !_3header1)
     {
-      if (_3uartHeader[0] == 0x45) // Başlık kontrolü
+      if (_3uartHeader[0] == 0x43) // Başlık kontrolü
         _3header1 = true;
       else
         _3header0 = false;                            // Başlık kontrolü başarısız, başlık kısmını sıfırla
       HAL_UART_Receive_DMA(&huart3, _3uartHeader, 1); // Başlık kısmını dinlemeye devam et
     }
-    else if (_3header0 && _3header1 && !_3headerCheck) // Başlık kontrolü
+    else if (_3header0 && _3header1 && !_3header2)
+    {
+      if (_3uartHeader[0] == 0x45) // Başlık kontrolü
+        _3header2 = true;
+      else
+      {
+        _3header0 = false; // Başlık kontrolü başarısız, başlık kısmını sıfırla
+        _3header1 = false;
+      }
+      HAL_UART_Receive_DMA(&huart3, _3uartHeader, 1); // Başlık kısmını dinlemeye devam et
+    }
+    else if (_3header0 && _3header1 && _3header2 && !_3headerCheck) // Başlık kontrolü
     {
       _3dataLen = _3uartHeader[0];  // Veri boyutunu al
       if (_3dataLen > MAX_DATA_LEN) // Eğer veri boyutu MAX_DATA_LEN'den büyükse
       {
         _3header0 = false;                              // Başlık kısmını sıfırla
         _3header1 = false;                              // Başlık kısmını sıfırla
+        _3header2 = false;                              // Başlık kısmını sıfırla
         HAL_UART_Receive_DMA(&huart3, _3uartHeader, 1); // Başlık kısmını dinlemeye devam et
       }
       else
@@ -189,6 +204,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
       _3headerCheck = false; // Başlık kontrolünü sıfırla
       _3header0 = false;     // Başlık kısmını sıfırla
       _3header1 = false;     // Başlık kısmını sıfırla
+      _3header2 = false;     // Başlık kısmını sıfırla
       _3MyDirection = 0x01;
 
       TransmitToSlave(&_3uartData[0], _3dataLen);     // Gelen veriyi işleme fonksiyonunu çağırıyoruz
@@ -199,19 +215,30 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
   {
     if (!_1header0)
     {
-      if (_1uartHeader[0] == 0x42)                    // Başlık kontrolü
+      if (_1uartHeader[0] == 0x45)                    // Başlık kontrolü
         _1header0 = true;                             // Başlık kontrolü başarılı
       HAL_UART_Receive_DMA(&huart1, _1uartHeader, 1); // Başlık kısmını dinlemeye devam et
     }
     else if (_1header0 && !_1header1)
     {
-      if (_1uartHeader[0] == 0x45) // Başlık kontrolü
+      if (_1uartHeader[0] == 0x43) // Başlık kontrolü
         _1header1 = true;
       else
         _1header0 = false;                            // Başlık kontrolü başarısız, başlık kısmını sıfırla
       HAL_UART_Receive_DMA(&huart1, _1uartHeader, 1); // Başlık kısmını dinlemeye devam et
     }
-    else if (_1header0 && _1header1 && !_1headerCheck) // Başlık kontrolü
+    else if (_1header0 && _1header1 && !_1header2)
+    {
+      if (_1uartHeader[0] == 0x45) // Başlık kontrolü
+        _1header2 = true;
+      else
+      {
+        _1header0 = false; // Başlık kontrolü başarısız, başlık kısmını sıfırla
+        _1header1 = false; // Başlık kontrolü başarısız, başlık kısmını sıfırla
+      }
+      HAL_UART_Receive_DMA(&huart1, _1uartHeader, 1); // Başlık kısmını dinlemeye devam et
+    }
+    else if (_1header0 && _1header1 && _1header2 && !_1headerCheck) // Başlık kontrolü
     {
       _1dataLen = _1uartHeader[0];  // Veri boyutunu al
       if (_1dataLen > MAX_DATA_LEN) // Eğer veri boyutu MAX_DATA_LEN'den büyükse
@@ -231,6 +258,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
       _1headerCheck = false; // Başlık kontrolünü sıfırla
       _1header0 = false;     // Başlık kısmını sıfırla
       _1header1 = false;     // Başlık kısmını sıfırla
+      _1header2 = false;     // Başlık kısmını sıfırla
 
       _1MyDirection = true;
       TransmitToMaster(&_1uartData[0], _1dataLen);    // Gelen veriyi işleme fonksiyonunu çağırıyoruz
@@ -241,25 +269,37 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
   {
     if (!_2header0)
     {
-      if (_2uartHeader[0] == 0x42)                    // Başlık kontrolü
+      if (_2uartHeader[0] == 0x45)                    // Başlık kontrolü
         _2header0 = true;                             // Başlık kontrolü başarılı
       HAL_UART_Receive_DMA(&huart2, _2uartHeader, 1); // Başlık kısmını dinlemeye devam et
     }
     else if (_2header0 && !_2header1)
     {
-      if (_2uartHeader[0] == 0x45) // Başlık kontrolü
+      if (_2uartHeader[0] == 0x43) // Başlık kontrolü
         _2header1 = true;
       else
         _2header0 = false;                            // Başlık kontrolü başarısız, başlık kısmını sıfırla
       HAL_UART_Receive_DMA(&huart2, _2uartHeader, 1); // Başlık kısmını dinlemeye devam et
     }
-    else if (_2header0 && _2header1 && !_2headerCheck) // Başlık kontrolü
+    else if (_2header0 && _2header1 && !_2header2)
+    {
+      if (_2uartHeader[0] == 0x45) // Başlık kontrolü
+        _2header2 = true;
+      else
+      {
+        _2header0 = false; // Başlık kontrolü başarısız, başlık kısmını sıfırla
+        _2header1 = false; // Başlık kontrolü başarısız, başlık kısmını sıfırla
+      }
+      HAL_UART_Receive_DMA(&huart2, _2uartHeader, 1); // Başlık kısmını dinlemeye devam et
+    }
+    else if (_2header0 && _2header1 && _2header2 && !_2headerCheck) // Başlık kontrolü
     {
       _2dataLen = _2uartHeader[0];  // Veri boyutunu al
       if (_2dataLen > MAX_DATA_LEN) // Eğer veri boyutu MAX_DATA_LEN'den büyükse
       {
         _2header0 = false;                              // Başlık kısmını sıfırla
         _2header1 = false;                              // Başlık kısmını sıfırla
+        _2header2 = false;                              // Başlık kısmını sıfırla
         HAL_UART_Receive_DMA(&huart2, _2uartHeader, 1); // Başlık kısmını dinlemeye devam et
       }
       else
@@ -273,6 +313,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
       _2headerCheck = false; // Başlık kontrolünü sıfırla
       _2header0 = false;     // Başlık kısmını sıfırla
       _2header1 = false;     // Başlık kısmını sıfırla
+      _2header2 = false;     // Başlık kısmını sıfırla
 
       _2MyDirection = true;
       TransmitToMaster(&_2uartData[0], _2dataLen);    // Gelen veriyi işleme fonksiyonunu çağırıyoruz
