@@ -217,115 +217,115 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
       HAL_UART_Receive_DMA(&huart3, _3uartHeader, 1); // Başlık kısmını dinlemeye devam et
     }
   }
-  /* if (huart->Instance == USART1 && transmitFlag) // 1.Makine
-   {
-     if (!_1header0)
-     {
-       if (_1uartHeader[0] == 0x45)                    // Başlık kontrolü
-         _1header0 = true;                             // Başlık kontrolü başarılı
-       HAL_UART_Receive_DMA(&huart1, _1uartHeader, 1); // Başlık kısmını dinlemeye devam et
-     }
-     else if (_1header0 && !_1header1)
-     {
-       if (_1uartHeader[0] == 0x43) // Başlık kontrolü
-         _1header1 = true;
-       else
-         _1header0 = false;                            // Başlık kontrolü başarısız, başlık kısmını sıfırla
-       HAL_UART_Receive_DMA(&huart1, _1uartHeader, 1); // Başlık kısmını dinlemeye devam et
-     }
-     else if (_1header0 && _1header1 && !_1header2)
-     {
-       if (_1uartHeader[0] == 0x45) // Başlık kontrolü
-         _1header2 = true;
-       else
-       {
-         _1header0 = false; // Başlık kontrolü başarısız, başlık kısmını sıfırla
-         _1header1 = false; // Başlık kontrolü başarısız, başlık kısmını sıfırla
-       }
-       HAL_UART_Receive_DMA(&huart1, _1uartHeader, 1); // Başlık kısmını dinlemeye devam et
-     }
-     else if (_1header0 && _1header1 && _1header2 && !_1headerCheck) // Başlık kontrolü
-     {
-       _1dataLen = _1uartHeader[0];  // Veri boyutunu al
-       if (_1dataLen > MAX_DATA_LEN) // Eğer veri boyutu MAX_DATA_LEN'den büyükse
-       {
-         _1header0 = false;                              // Başlık kısmını sıfırla
-         _1header1 = false;                              // Başlık kısmını sıfırla
-         HAL_UART_Receive_DMA(&huart1, _1uartHeader, 1); // Başlık kısmını dinlemeye devam et
-       }
-       else
-       {
-         _1headerCheck = true;                                 // Başlık kontrolü başarılı
-         HAL_UART_Receive_DMA(&huart1, _1uartData, _1dataLen); // Gelen veriyi al
-       }
-     }
-     else if (_1headerCheck)
-     {
-       _1headerCheck = false; // Başlık kontrolünü sıfırla
-       _1header0 = false;     // Başlık kısmını sıfırla
-       _1header1 = false;     // Başlık kısmını sıfırla
-       _1header2 = false;     // Başlık kısmını sıfırla
+  if (huart->Instance == USART1 && transmitFlag) // 1.Makine
+  {
+    if (!_1header0)
+    {
+      if (_1uartHeader[0] == 0x45)                    // Başlık kontrolü
+        _1header0 = true;                             // Başlık kontrolü başarılı
+      HAL_UART_Receive_DMA(&huart1, _1uartHeader, 1); // Başlık kısmını dinlemeye devam et
+    }
+    else if (_1header0 && !_1header1)
+    {
+      if (_1uartHeader[0] == 0x43) // Başlık kontrolü
+        _1header1 = true;
+      else
+        _1header0 = false;                            // Başlık kontrolü başarısız, başlık kısmını sıfırla
+      HAL_UART_Receive_DMA(&huart1, _1uartHeader, 1); // Başlık kısmını dinlemeye devam et
+    }
+    else if (_1header0 && _1header1 && !_1header2)
+    {
+      if (_1uartHeader[0] == 0x45) // Başlık kontrolü
+        _1header2 = true;
+      else
+      {
+        _1header0 = false; // Başlık kontrolü başarısız, başlık kısmını sıfırla
+        _1header1 = false; // Başlık kontrolü başarısız, başlık kısmını sıfırla
+      }
+      HAL_UART_Receive_DMA(&huart1, _1uartHeader, 1); // Başlık kısmını dinlemeye devam et
+    }
+    else if (_1header0 && _1header1 && _1header2 && !_1headerCheck) // Başlık kontrolü
+    {
+      _1dataLen = _1uartHeader[0];  // Veri boyutunu al
+      if (_1dataLen > MAX_DATA_LEN) // Eğer veri boyutu MAX_DATA_LEN'den büyükse
+      {
+        _1header0 = false;                              // Başlık kısmını sıfırla
+        _1header1 = false;                              // Başlık kısmını sıfırla
+        HAL_UART_Receive_DMA(&huart1, _1uartHeader, 1); // Başlık kısmını dinlemeye devam et
+      }
+      else
+      {
+        _1headerCheck = true;                                 // Başlık kontrolü başarılı
+        HAL_UART_Receive_DMA(&huart1, _1uartData, _1dataLen); // Gelen veriyi al
+      }
+    }
+    else if (_1headerCheck)
+    {
+      _1headerCheck = false; // Başlık kontrolünü sıfırla
+      _1header0 = false;     // Başlık kısmını sıfırla
+      _1header1 = false;     // Başlık kısmını sıfırla
+      _1header2 = false;     // Başlık kısmını sıfırla
 
-       _1MyDirection = true;
-       TransmitToMaster(&_1uartData[0], _1dataLen);    // Gelen veriyi işleme fonksiyonunu çağırıyoruz
-       HAL_UART_Receive_DMA(&huart1, _1uartHeader, 1); // Başlık kısmını dinlemeye devam et
-     }
-   }
-   if (huart->Instance == USART2 && transmitFlag) // 2.Makine
-   {
-     if (!_2header0)
-     {
-       if (_2uartHeader[0] == 0x45)                    // Başlık kontrolü
-         _2header0 = true;                             // Başlık kontrolü başarılı
-       HAL_UART_Receive_DMA(&huart2, _2uartHeader, 1); // Başlık kısmını dinlemeye devam et
-     }
-     else if (_2header0 && !_2header1)
-     {
-       if (_2uartHeader[0] == 0x43) // Başlık kontrolü
-         _2header1 = true;
-       else
-         _2header0 = false;                            // Başlık kontrolü başarısız, başlık kısmını sıfırla
-       HAL_UART_Receive_DMA(&huart2, _2uartHeader, 1); // Başlık kısmını dinlemeye devam et
-     }
-     else if (_2header0 && _2header1 && !_2header2)
-     {
-       if (_2uartHeader[0] == 0x45) // Başlık kontrolü
-         _2header2 = true;
-       else
-       {
-         _2header0 = false; // Başlık kontrolü başarısız, başlık kısmını sıfırla
-         _2header1 = false; // Başlık kontrolü başarısız, başlık kısmını sıfırla
-       }
-       HAL_UART_Receive_DMA(&huart2, _2uartHeader, 1); // Başlık kısmını dinlemeye devam et
-     }
-     else if (_2header0 && _2header1 && _2header2 && !_2headerCheck) // Başlık kontrolü
-     {
-       _2dataLen = _2uartHeader[0];  // Veri boyutunu al
-       if (_2dataLen > MAX_DATA_LEN) // Eğer veri boyutu MAX_DATA_LEN'den büyükse
-       {
-         _2header0 = false;                              // Başlık kısmını sıfırla
-         _2header1 = false;                              // Başlık kısmını sıfırla
-         _2header2 = false;                              // Başlık kısmını sıfırla
-         HAL_UART_Receive_DMA(&huart2, _2uartHeader, 1); // Başlık kısmını dinlemeye devam et
-       }
-       else
-       {
-         _2headerCheck = true;                                 // Başlık kontrolü başarılı
-         HAL_UART_Receive_DMA(&huart2, _2uartData, _2dataLen); // Gelen veriyi al
-       }
-     }
-     else if (_2headerCheck)
-     {
-       _2headerCheck = false; // Başlık kontrolünü sıfırla
-       _2header0 = false;     // Başlık kısmını sıfırla
-       _2header1 = false;     // Başlık kısmını sıfırla
-       _2header2 = false;     // Başlık kısmını sıfırla
+      _1MyDirection = true;
+      TransmitToMaster(&_1uartData[0], _1dataLen);    // Gelen veriyi işleme fonksiyonunu çağırıyoruz
+      HAL_UART_Receive_DMA(&huart1, _1uartHeader, 1); // Başlık kısmını dinlemeye devam et
+    }
+  }
+  if (huart->Instance == USART2 && transmitFlag) // 2.Makine
+  {
+    if (!_2header0)
+    {
+      if (_2uartHeader[0] == 0x45)                    // Başlık kontrolü
+        _2header0 = true;                             // Başlık kontrolü başarılı
+      HAL_UART_Receive_DMA(&huart2, _2uartHeader, 1); // Başlık kısmını dinlemeye devam et
+    }
+    else if (_2header0 && !_2header1)
+    {
+      if (_2uartHeader[0] == 0x43) // Başlık kontrolü
+        _2header1 = true;
+      else
+        _2header0 = false;                            // Başlık kontrolü başarısız, başlık kısmını sıfırla
+      HAL_UART_Receive_DMA(&huart2, _2uartHeader, 1); // Başlık kısmını dinlemeye devam et
+    }
+    else if (_2header0 && _2header1 && !_2header2)
+    {
+      if (_2uartHeader[0] == 0x45) // Başlık kontrolü
+        _2header2 = true;
+      else
+      {
+        _2header0 = false; // Başlık kontrolü başarısız, başlık kısmını sıfırla
+        _2header1 = false; // Başlık kontrolü başarısız, başlık kısmını sıfırla
+      }
+      HAL_UART_Receive_DMA(&huart2, _2uartHeader, 1); // Başlık kısmını dinlemeye devam et
+    }
+    else if (_2header0 && _2header1 && _2header2 && !_2headerCheck) // Başlık kontrolü
+    {
+      _2dataLen = _2uartHeader[0];  // Veri boyutunu al
+      if (_2dataLen > MAX_DATA_LEN) // Eğer veri boyutu MAX_DATA_LEN'den büyükse
+      {
+        _2header0 = false;                              // Başlık kısmını sıfırla
+        _2header1 = false;                              // Başlık kısmını sıfırla
+        _2header2 = false;                              // Başlık kısmını sıfırla
+        HAL_UART_Receive_DMA(&huart2, _2uartHeader, 1); // Başlık kısmını dinlemeye devam et
+      }
+      else
+      {
+        _2headerCheck = true;                                 // Başlık kontrolü başarılı
+        HAL_UART_Receive_DMA(&huart2, _2uartData, _2dataLen); // Gelen veriyi al
+      }
+    }
+    else if (_2headerCheck)
+    {
+      _2headerCheck = false; // Başlık kontrolünü sıfırla
+      _2header0 = false;     // Başlık kısmını sıfırla
+      _2header1 = false;     // Başlık kısmını sıfırla
+      _2header2 = false;     // Başlık kısmını sıfırla
 
-       _2MyDirection = true;
-       TransmitToMaster(&_2uartData[0], _2dataLen);    // Gelen veriyi işleme fonksiyonunu çağırıyoruz
-       HAL_UART_Receive_DMA(&huart2, _2uartHeader, 1); // Başlık kısmını dinlemeye devam et
-     }
-   }*/
+      _2MyDirection = true;
+      TransmitToMaster(&_2uartData[0], _2dataLen);    // Gelen veriyi işleme fonksiyonunu çağırıyoruz
+      HAL_UART_Receive_DMA(&huart2, _2uartHeader, 1); // Başlık kısmını dinlemeye devam et
+    }
+  }
 }
 /* USER CODE END 0 */
 
